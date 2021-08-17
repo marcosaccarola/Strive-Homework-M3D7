@@ -46,39 +46,42 @@
     <title>Strive</title>
   </head>
   <body>
-    <select id="simple" name="simple"></select>
     <script>
-      let piotr = [];
+      let usersData = [];
+
       const data = async () => {
         let response = await fetch(
-          "https://jsonplaceholder.typicode.com/users "
+          "https://jsonplaceholder.typicode.com/users"
         );
-        let piotr = await response.json();
-        // return users;
-        // console.log(piotr);
-        // console.log(typeof piotr);
-        // console.log(typeof users);
-        let obj = Object.values(piotr);
-        console.log(typeof obj);
-        console.log(obj);
+        let data = await response.json();
+        displayUser(data);
       };
 
-      //   function select(arr) {
-      //     console.log(arr);
-      //   }
-
-      function select(arr) {
-        return users.forEach((user) => {
-          document.getElementById("simple").innerHTML += `
-                    <option>${user[0].name}</option>`;
-          console.log(user);
-        });
+      function displayUser(arr) {
+        console.log(arr);
       }
 
       window.onload = () => {
         data();
-        select(piotr);
+        // dataOldFashion();
       };
+
+      // const dataOldFashion = () => {
+      //   fetch("https://jsonplaceholder.typicode.com/users")
+      //     .then((resp) => resp.json())
+      //     .then((data) => console.log(data));
+      // };
+      //   function select(arr) {
+      //     console.log(arr);
+      //   }
+
+      // function select(arr) {
+      //   return users.forEach((user) => {
+      //     document.getElementById("simple").innerHTML += `
+      //               <option>${user[0].name}</option>`;
+      //     console.log(user);
+      //   });
+      // }
     </script>
 
     <script
