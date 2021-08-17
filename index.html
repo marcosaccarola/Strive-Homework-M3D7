@@ -52,6 +52,10 @@
       <option value="email">Email</option>
     </select>
     <input type="text" name="searchbar" id="searchbar" />
+    <!-- 
+    <select id="simple" name="simple"></select>
+    <select id="simple2" name="simple"></select>
+    <select id="simple3" name="simple"></select> -->
 
     <script>
       let usersData = [];
@@ -65,7 +69,25 @@
       };
 
       function displayUser(arr) {
-        console.log(arr);
+        const row = document.getElementById("simple");
+
+        for (let user of arr) {
+          row.innerHTML += `    
+        <option>${user.name}</option>
+      `;
+        }
+        const row2 = document.getElementById("simple2");
+        for (let user of arr) {
+          row2.innerHTML += `    
+        <option>${user.username}</option>
+      `;
+        }
+        const row3 = document.getElementById("simple3");
+        for (let user of arr) {
+          row3.innerHTML += `    
+        <option>${user.email}</option>
+      `;
+        }
       }
 
       window.onload = () => {
