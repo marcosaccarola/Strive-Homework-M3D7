@@ -73,6 +73,37 @@
     </div>
 
     <script>
+      const displayData = (data) => {
+        const table = `
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Website</th>
+              <th scope="col">Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${(data.map = (user) =>
+              `
+            <tr>
+              <td>${data.name}</td>
+              <td>${data.username}</td>
+              <td>${data.email}</td>
+              <td>${data.phone}</td>
+              <td>${data.website}</td>
+              <td>${Object.values(data.address).join(",")}</td>
+              <td>${Object.values(data.company).join(",")}</td>
+            </tr>
+            `)}
+          </tbody>
+        </table>
+        `;
+      };
+
       window.onload = async () => {
         try {
           const response = await fetch(
